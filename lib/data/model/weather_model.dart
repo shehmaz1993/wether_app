@@ -28,5 +28,14 @@ class WeatherModel extends WeatherEntity{
     pressure: json['main']['pressure'],
     humidity: json['main']['humidity']
   );
+  WeatherEntity toEntity()=>WeatherEntity(
+      cityName: cityName,
+      main: main,
+      description: description,
+      iconCode: iconCode,
+      temperature: temperature,
+      pressure: pressure,
+      humidity: humidity
+  );
 
 }
