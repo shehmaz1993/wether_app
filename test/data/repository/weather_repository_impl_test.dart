@@ -71,7 +71,7 @@ void main(){
                     ).thenThrow(const SocketException('Failed to connect to the network'));
                     //act
                     final response = await weatherRepositoryImpl.getCurrentWeather(cityName);
-                    //
+                    //assert
                     expect(response, equals(const Left(ConnectionFailure('Failed to connect to the network'))));
                   });
     
