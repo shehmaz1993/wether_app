@@ -75,6 +75,7 @@ void main(){
         when(()=>mockWeatherBloc.state).thenReturn(const WeatherLoaded(testWeather));
         //act
         await widgetTester.pumpWidget(_makeTestableWidget(const WeatherPage()));
+        await widgetTester.pumpAndSettle();
         //assert
         expect(find.byKey(const Key('weather_data')), findsOneWidget);
 
