@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,9 +34,7 @@ void main(){
   );
   Widget _makeTestableWidget(Widget body){
     return BlocProvider<WeatherBloc>(
-      create: (BuildContext context) {
-        return mockWeatherBloc;
-      },
+      create: (context) =>mockWeatherBloc,
       child: MaterialApp(
         home:body ,
       ),
@@ -78,7 +75,6 @@ void main(){
         when(()=>mockWeatherBloc.state).thenReturn(const WeatherLoaded(testWeather));
         //act
         await widgetTester.pumpWidget(_makeTestableWidget(const WeatherPage()));
-       // var infoWidget = find.byKey(const Key('weather_data'));
         //assert
         expect(find.byKey(const Key('weather_data')), findsOneWidget);
 
